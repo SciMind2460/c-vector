@@ -42,7 +42,9 @@ void vector_push(Vector* vec, void* item) {
 
 void vector_pop(Vector* vec) {
     if (vec->len > 0) {
-        vec->len--;
+        void* item = vec->ptr[vec->len];
+        vec->ptr[--vec->len] = NULL;
+        return item;
     }
 }
 
