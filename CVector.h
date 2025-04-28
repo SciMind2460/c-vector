@@ -19,7 +19,7 @@ Vector* vector_from_array(void** array, size_t length);
 void** vector_to_array(Vector* vec);
 
 void vector_push(Vector* vec, void* item);
-void vector_pop(Vector* vec);
+void* vector_pop(Vector* vec);
 
 void* vector_index(Vector* vec, size_t index);
 void vector_modify(Vector* vec, size_t index, void* item);
