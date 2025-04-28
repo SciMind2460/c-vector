@@ -1,2 +1,6 @@
-CVector: CVector.c
-  gcc CVector.c -o CVector
+CC = gcc
+CFLAGS = -g
+
+example: CVector
+
+CVector: CVector.o
