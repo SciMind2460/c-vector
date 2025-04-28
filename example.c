@@ -1,4 +1,5 @@
-#include <CVector.h>
+#include "CVector.h"
+#include <stdio.h>
 
 int main() {
     Vector* vec = vector_create(100);
