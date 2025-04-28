@@ -1,5 +1,6 @@
-#ifndef CVECTOR_H
-#define CVECTOR_H
+#ifndef CVECTOR_H_
+#define CVECTOR_H_
+
 #include <stdlib.h>
 
 typedef struct {
