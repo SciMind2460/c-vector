@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -g
 
-example: CVector
+example: example.o CVector
 
 CVector: CVector.o
