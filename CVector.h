@@ -1,3 +1,5 @@
+#ifndef CVECTOR_H
+#define CVECTOR_H
 #include <stdlib.h>
 
 typedef struct {
@@ -30,3 +32,4 @@ size_t vector_search(Vector* vec, void* item);
 VectorPair* vector_split_at_index(Vector* vec, size_t index);
 
 void vector_free(Vector* vec);
+#endif
