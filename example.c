@@ -7,7 +7,7 @@ int main() {
         vector_push(vec, (void*) &i);
     };
     for (size_t i = 0; i < 100; i++) {
-        printf!("%d", vector_index(i));
+        printf("%d", vector_index(i));
     };
     vector_free(vec);
     return 0;
