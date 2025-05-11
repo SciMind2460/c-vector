@@ -10,7 +10,7 @@ typedef struct {
 } String;
 
 String* string_create(size_t initial_cap);
-String* string_free(String* str);
+void string_free(String* str);
 
 String* string_from_chrs(char* chrs, size_t len);
 char* string_to_chrs(String* str);
