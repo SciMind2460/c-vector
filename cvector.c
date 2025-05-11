@@ -2,9 +2,9 @@
 #define VECTOR_ERROR -1
 
 Vector* vector_create(size_t initial_capacity) {
-    Vector* vec = (Vector*)malloc(sizeof(Vector));
+    Vector* vec = malloc(sizeof(Vector));
     if (!vec) return NULL;
-    vec->ptr = (void**)malloc(initial_capacity * sizeof(void*));
+    vec->ptr = malloc(initial_capacity * sizeof(void*));
     if (!vec->ptr) {
         free(vec);
         return NULL;
@@ -25,7 +25,7 @@ Vector* vector_from_array(void** array, size_t length) {
 }
 
 void** vector_to_array(Vector* vec) {
-    void** array = (void**)malloc(vec->len * sizeof(void*));
+    void** array = malloc(vec->len * sizeof(void*));
     if (!array) return NULL;
     for (size_t i = 0; i < vec->len; i++) {
         array[i] = vec->ptr[i];
@@ -36,7 +36,11 @@ void** vector_to_array(Vector* vec) {
 void vector_push(Vector* vec, void* item) {
     if (vec->len >= vec->cap) {
         vec->cap *= 2;
-        vec->ptr = (void**)realloc(vec->ptr, vec->cap * sizeof(void*));
+        vec->ptr = realloc(vec->ptr, vec->cap * sizeof(void*));
+        if (!vec->ptr) {
+            free(vec);
+            return;
+        }
     }
     vec->ptr[vec->len++] = item;
 }
@@ -94,7 +98,7 @@ void vector_remove_at_index(Vector* vec, size_t index) {
 
 VectorPair* split_at_index(Vector* vec, size_t index) {
     if (index > vec->len) return NULL;
-    VectorPair* pair = (VectorPair*)malloc(sizeof(VectorPair));
+    VectorPair* pair = malloc(sizeof(VectorPair));
     if (!pair) return NULL;
     pair->left = vector_create(index);
     pair->right = vector_create(vec->len - index);
