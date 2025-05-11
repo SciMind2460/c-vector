@@ -1,4 +1,5 @@
 #include "CVector.h"
+#define VECTOR_ERROR -1
 
 Vector* vector_create(size_t initial_capacity) {
     Vector* vec = (Vector*)malloc(sizeof(Vector));
@@ -40,7 +41,7 @@ void vector_push(Vector* vec, void* item) {
     vec->ptr[vec->len++] = item;
 }
 
-void vector_pop(Vector* vec) {
+void* vector_pop(Vector* vec) {
     if (vec->len > 0) {
         void* item = vec->ptr[vec->len];
         vec->ptr[--vec->len] = NULL;
@@ -67,7 +68,7 @@ size_t vector_search(Vector* vec, void* item) {
             return i;
         }
     }
-    return -1;
+    return VECTOR_ERROR;
 }
 
 void vector_add_at_index(Vector* vec, size_t index, void* item) {
